@@ -1,15 +1,15 @@
-import { CsvFileParser } from "./CsvFileParser";
+import { MatchReader } from "./MatchReader";
 import { MatchResult } from "./MatchResult";
 
-const csvFileParser = new CsvFileParser("football.csv");
-csvFileParser.read();
+const reader = new MatchReader("football.csv");
+reader.read();
 //console.log(csvFileParser.data);
 
 // finding the number of match wins of manchester united
 
 let manUnitedWins = 0;
 
-for (const match of csvFileParser.data) {
+for (const match of reader.data) {
   if (match[1] === "Man United" && match[5] === MatchResult.HomeWin) {
     manUnitedWins++;
   } else if (match[2] === "Man United" && match[5] === MatchResult.AwayWin) {
